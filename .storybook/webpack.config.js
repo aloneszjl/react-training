@@ -5,6 +5,7 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
+const paths = require('../config/paths');
 
 module.exports = {
   plugins: [
@@ -12,7 +13,11 @@ module.exports = {
   ],
   module: {
     rules: [
-      // add your custom rules.
+      {
+        test: /\.(svg)$/i,
+        loader: 'svg-sprite-loader',
+        include: [paths.svgSrc],
+      },
     ],
   },
 };

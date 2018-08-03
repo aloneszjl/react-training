@@ -9,9 +9,13 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build:storybook": "build-storybook -c .storybook -o storybook",
+    "deploy:storybook": "cd storybook && now && now alias && now remove ifast-fe-storybook --safe"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "core-js": "^3.0.0-beta.3",
+    "history": "^4.7.2",
     "lodash": "^4.17.10",
     "object-assign": "4.1.1",
     "promise": "8.0.1",
@@ -21,6 +25,7 @@
     "react-dom": "^16.4.1",
     "react-loadable": "^5.4.0",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
