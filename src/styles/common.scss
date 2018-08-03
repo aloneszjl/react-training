@@ -1,0 +1,191 @@
+@import "./_variable.scss";
+
+$hd: 1rem;
+$dividerColor: #eeeeee;
+$dangerColor: #ff5346;
+
+html {
+  font-size: 100px;
+  width: 100%;
+  height: 100%;
+}
+
+// 公共样式
+body {
+  font-size: 0.14 * $hd;
+  margin: 0;
+  padding: 0;
+  font-family: PingFangSC-Regular, Hiragino Sans GB, Helvetica Neue, Helvetica,
+    STHeiTi, sans-serif;
+  background: #f4f4f4;
+  color: #4d555a;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.relative {
+  position: relative;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
+
+button {
+  height: 0.42 * $hd;
+  font-size: 0.15 * $hd;
+
+  margin: 0;
+  border: none;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.small-rounded {
+  border-radius: 0.03rem;
+  overflow: hidden;
+}
+
+li {
+  outline: none;
+  list-style: none;
+}
+
+@mixin createDivider($direction) {
+  .item-#{$direction}-divider {
+    &:not(:last-child) {
+      border-#{$direction}: 1px solid $dividerColor;
+    }
+  }
+}
+
+.card {
+  margin: 0.08rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.card-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #eee;
+}
+
+.image-container {
+  font-size: 0;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.number {
+  font-family: DINAlternate-Bold;
+}
+
+@include createDivider("top");
+@include createDivider("right");
+@include createDivider("bottom");
+@include createDivider("left");
+
+.divider-border {
+  border: 1px solid $dividerColor;
+}
+
+.absolute {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.white {
+  background: white;
+}
+input {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
+.flex {
+  flex: 1;
+}
+@mixin createSpacing($prefix, $hd) {
+  @for $i from 0 through 20 {
+    .#{$prefix}-#{$i * 5} {
+      #{$prefix}: $i * $hd;
+    }
+    .#{$prefix}-vertical-#{$i * 5} {
+      #{$prefix}-top: $i * $hd;
+      #{$prefix}-bottom: $i * $hd;
+    }
+    .#{$prefix}-horizontal-#{$i * 5} {
+      #{$prefix}-left: $i * $hd;
+      #{$prefix}-right: $i * $hd;
+    }
+    .#{$prefix}-top-#{$i * 5} {
+      #{$prefix}-top: $i * $hd;
+    }
+    .#{$prefix}-bottom-#{$i * 5} {
+      #{$prefix}-bottom: $i * $hd;
+    }
+    .#{$prefix}-left-#{$i * 5} {
+      #{$prefix}-left: $i * $hd;
+    }
+    .#{$prefix}-right-#{$i * 5} {
+      #{$prefix}-right: $i * $hd;
+    }
+  }
+}
+
+@include createSpacing("padding", 0.05 * $hd);
+@include createSpacing("margin", 0.05 * $hd);
+
+.tc-label {
+  font-size: 0.11rem;
+  background-color: #e7f2ff;
+  padding: 0.02rem 0.04rem;
+  border-radius: 0.03rem;
+  border: 1px solid #5da6ff;
+  color: #157eff;
+}
+
+.tc-label-red {
+  font-size: 0.11rem;
+  background-color: #ff5346;
+  padding: 0.02rem 0.04rem;
+  border-radius: 0.03rem;
+  color: white;
+}
+.fee-item {
+  .before-discount {
+    font-size: 0.12rem;
+    text-decoration: line-through;
+    margin-right: 0.05rem;
+  }
+  .after-discount {
+    margin-right: 0.05rem;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

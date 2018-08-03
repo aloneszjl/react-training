@@ -32,10 +32,12 @@
     "redux-observable": "^1.0.0",
     "resolve": "1.6.0",
     "rxjs": "^6.2.2",
+    "styled-components": "^3.4.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.10",
     "@storybook/addon-links": "^3.4.8",
     "@storybook/addons": "^3.4.8",
     "@storybook/react": "^3.4.8",

@@ -6,3 +6,7 @@ scripts/test.js
 storybook/build
 build
 config
+/storybook/static
+/storybook/favicon.ico
+/storybook/index.html
+/storybook/iframe.html

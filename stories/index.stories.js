@@ -1,9 +1,21 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Svg from '../src/components/Svg';
+import { ThemeProvider } from 'styled-components';
+import { storiesOf, configure, addDecorator } from '@storybook/react';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs/react';
+import { Button } from '../src/components';
+import theme from '../src/styles/styles';
+import '../src/styles/common.scss';
+import svg from './svg';
 
-import logoSvg from '../src/svg/logo.svg';
+addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>);
 
-storiesOf('Svg', module)
-  .add('logo', () => <Svg source={logoSvg} />)
-  .add('logo-red', () => <Svg source={logoSvg} style={{ fill: 'red' }} />);
+configure(() => {
+  svg();
+  storiesOf('Button', module)
+    .addDecorator(withKnobs)
+    .add('normal', () => {
+      const label = text('Name', 'Arunoda Susiripala');
+      return <Button disabled={boolean('Disabled', false)}>{label}</Button>;
+    })
+    .add('primary', () => <Button primary>提交</Button>);
+}, module);
